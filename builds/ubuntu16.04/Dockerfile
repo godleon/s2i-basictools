@@ -1,5 +1,5 @@
 # This image is an Ubuntu base image for Source-to-Image builds
-FROM williamyeh/ansible:ubuntu16.04
+FROM williamyeh/ansible:ubuntu16.04-onbuild
 MAINTAINER godleon <godleon@gmail.com>
 
 LABEL \
@@ -24,7 +24,7 @@ apt-get -yq update && \
 apt-get -yq install $INSTALL_PKGS && \
 apt-get clean && \
 git clone https://github.com/godleon/s2i-basictools.git && \
-cd s2i-basictools &&
+cd s2i-basictools
 
 ENV PLAYBOOK s2i-basictools/setup.yml
 RUN ansible-playbook-wrapper -vvv

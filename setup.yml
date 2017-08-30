@@ -8,11 +8,3 @@
   tasks:
     - name: include main tasks
       include: tasks/main.yml
-
-    - name: check vim version
-      command: vim --version
-      register: vim_version
-
-    - name: print vim version
-      debug:
-        msg: "{{ vim_version.stdout_lines }}"
