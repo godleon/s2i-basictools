@@ -6,7 +6,7 @@
 # IMAGE_NAME specifies a name of the candidate image used for testing.
 # The image has to be available before this script is executed.
 #
-IMAGE_NAME=${IMAGE_NAME-openshift/s2i-basictools:16.04}
+IMAGE_NAME=${IMAGE_NAME-openshift/s2i-basictools}
 
 # Determining system utility executables (darwin compatibility check)
 READLINK_EXEC="readlink"
@@ -35,12 +35,12 @@ container_exists() {
 }
 
 run_s2i_build() {
-  s2i build --incremental=true ${s2i_args} file://${test_dir} ${IMAGE_NAME} ${IMAGE_NAME}-testapp
+  s2i build --incremental=true ${s2i_args} file://${test_dir} ${IMAGE_NAME}:${TAG_NAME} ${IMAGE_NAME}-testapp:${TAG_NAME}
 }
 
 test_usage() {
   echo "Testing 's2i usage'..."
-  s2i usage ${s2i_args} ${IMAGE_NAME} &>/dev/null
+  s2i usage ${s2i_args} ${IMAGE_NAME}:${TAG_NAME} &>/dev/null
 }
 
 cleanup() {
@@ -49,13 +49,13 @@ cleanup() {
       docker stop $(cat $cid_file)
     fi
   fi
-  if image_exists ${IMAGE_NAME}-testapp; then
-    docker rmi ${IMAGE_NAME}-testapp
+  if image_exists ${IMAGE_NAME}-testapp:${TAG_NAME}; then
+    docker rmi ${IMAGE_NAME}-testapp:${TAG_NAME}
   fi
 }
 
 run_test_application() {
-  docker run --rm --cidfile=${cid_file} ${IMAGE_NAME}-testapp
+  docker run --rm --cidfile=${cid_file} ${IMAGE_NAME}-testapp:${TAG_NAME}
 }
 
 wait_for_cid() {
@@ -73,13 +73,13 @@ wait_for_cid() {
 
 test_docker_run_usage() {
     echo "Testing 'docker run' usage..."
-    docker run --rm ${IMAGE_NAME}
+    docker run --rm ${IMAGE_NAME}:${TAG_NAME}
 }
 
 check_result() {
     local result="$1"
     if [[ "$result" != "0" ]]; then
-        echo "-----------------------> STI image '${IMAGE_NAME}' test FAILED (exit code: ${result})"
+        echo "-----------------------> STI image '${IMAGE_NAME}:${TAG_NAME}' test FAILED (exit code: ${result})"
         echo "------------------------------------------------> TEST STOPPED!"
         exit $result
     fi
