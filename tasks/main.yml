@@ -23,5 +23,5 @@
     mode: 0755
 
 - name: print environment variable
-      debug:
-        msg: "{{ ansible_env.HOME }}"
+  debug:
+    msg: "{{ ansible_env.HOME }}"
