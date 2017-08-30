@@ -6,7 +6,7 @@
 # IMAGE_NAME specifies a name of the candidate image used for testing.
 # The image has to be available before this script is executed.
 #
-IMAGE_NAME=${IMAGE_NAME-openshift/s2i-ubuntu-basetools:16.04}
+IMAGE_NAME=${IMAGE_NAME-openshift/s2i-basictools:16.04}
 
 # Determining system utility executables (darwin compatibility check)
 READLINK_EXEC="readlink"

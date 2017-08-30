@@ -1,4 +1,4 @@
-IMAGE_NAME = s2i-ubuntu-basetools:16.04
+IMAGE_NAME = s2i-basictools:16.04
 
 .PHONY: build
 build:
