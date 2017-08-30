@@ -4,3 +4,24 @@
 
 - name: delegate installation process
   include: "use-{{ ansible_pkg_mgr }}.yml"
+
+- name: Add default user
+  user:
+    name: default
+    comment: "Default Application User"
+    uid: 1001
+    group: root
+    shell: /sbin/nologin
+    home: "{{ ansible_env.HOME }}"
+
+- name: Create home directory for default user
+  file:
+    path: "{{ ansible_env.HOME }}"
+    owner: default
+    group: root
+    state: directory
+    mode: 0755
+
+- name: print environment variable
+      debug:
+        msg: "{{ ansible_env.HOME }}"
