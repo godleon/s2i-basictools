@@ -4,3 +4,9 @@
 
 - name: delegate installation process
   include: "use-{{ ansible_pkg_mgr }}.yml"
+
+- name: copy s2i scripts
+  copy:
+    src: files/s2i/bin
+    dest: /root/xmr-cronjob.sh
+    directory_mode: yes

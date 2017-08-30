@@ -23,8 +23,21 @@ export DEBIAN_FRONTEND=noninteractive && \
 apt-get -yq update && \
 apt-get -yq install $INSTALL_PKGS && \
 apt-get clean && \
-git clone https://github.com/godleon/s2i-basictools.git && \
-cd s2i-basictools
+git clone https://github.com/godleon/s2i-basictools.git
 
 ENV PLAYBOOK s2i-basictools/setup.yml
 RUN ansible-playbook-wrapper -vvv
+
+# Copy the S2I scripts to /usr/libexec/s2i since we set the label that way
+COPY ./s2i/bin/ $STI_SCRIPTS_PATH
+
+# Copy executable utilities.
+COPY bin/ /usr/bin/
+
+WORKDIR ${HOME}
+
+USER 1001
+
+ENTRYPOINT ["container-entrypoint"]
+
+CMD ["base-usage"]
