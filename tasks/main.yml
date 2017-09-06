@@ -22,6 +22,14 @@
     state: directory
     mode: 0755
 
+- name: Create home directory for default user
+  file:
+    path: "{{ ansible_env.HOME }}/.ansible"
+    owner: default
+    group: root
+    state: directory
+    mode: 0755
+
 - name: print environment variable
   debug:
     msg: "{{ ansible_env.HOME }}"
