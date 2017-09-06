@@ -29,6 +29,7 @@
     entity: default
     etype: user
     permissions: rwx
+    recursive: yes
     default: yes
     state: present
 

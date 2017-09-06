@@ -14,7 +14,7 @@ ENV \
     STI_SCRIPTS_PATH=/usr/libexec/s2i \
     # The $HOME is not set by default, but some applications needs this variable
     HOME=/opt/app-root/src \
-    DEFAULT_LOCAL_TMP=/tmp/.ansible/tmp \
+    ANSIBLE_LOCAL_TEMP=/tmp/.ansible/tmp \
     PATH=/opt/app-root/src/bin:/opt/app-root/bin:$PATH
 
 RUN INSTALL_PKGS="git \
