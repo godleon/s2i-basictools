@@ -35,9 +35,9 @@ COPY ./s2i/bin/ $STI_SCRIPTS_PATH
 # Copy executable utilities.
 COPY bin/ /usr/bin/
 
-WORKDIR ${HOME}
+#WORKDIR ${HOME}
 
-USER 1001
+#USER 1001
 
 ENTRYPOINT ["container-entrypoint"]
 
