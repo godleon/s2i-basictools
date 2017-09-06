@@ -17,6 +17,7 @@
     - "wget"
     - "curl"
     - "git"
+    - "acl"
 
 - name: APT autoremove
   become: yes
