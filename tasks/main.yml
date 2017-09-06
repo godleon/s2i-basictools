@@ -20,15 +20,17 @@
     owner: default
     group: root
     state: directory
+    recurse: yes
     mode: 0755
 
-- name: Create home directory for default user
-  file:
-    path: "{{ ansible_env.HOME }}/.ansible"
-    owner: default
-    group: root
-    state: directory
-    mode: 0755
+- name: Configure ACL permission for default user
+  acl:
+    path: "{{ ansible_env.HOME }}"
+    entity: default
+    etype: user
+    permissions: rwx
+    default: yes
+    state: present
 
 - name: print environment variable
   debug:
