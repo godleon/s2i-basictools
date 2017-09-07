@@ -21,7 +21,7 @@
     group: root
     state: directory
     recurse: yes
-    mode: 0755
+    mode: 0775
 
 - name: Configure ACL permission for default user
   acl:
