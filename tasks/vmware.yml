@@ -20,4 +20,4 @@
 
 - name: "(VMware Automation) Install necessary python modules for Ansible"
   pip:
-    requirements: "ansible-requirements/{{ REQ_FILE }}"
+    requirements: "ansible-requirements/vmware.txt"

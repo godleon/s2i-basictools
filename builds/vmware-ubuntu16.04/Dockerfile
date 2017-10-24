@@ -18,16 +18,18 @@ ENV \
     PATH=/opt/app-root/src/bin:/opt/app-root/bin:$PATH \
     PLATFORM=vmware
 
-RUN INSTALL_PKGS="git \
-make \
-curl" && \
+RUN INSTALL_PKGS="git make curl python2.7 python-pip" && \
 export DEBIAN_FRONTEND=noninteractive && \
+apt-get -y remove ansible && \
 apt-get -yq update && \
 apt-get -yq install $INSTALL_PKGS && \
 apt-get clean && \
+pip install --upgrade pip && \
+pip install ansible && \
 git clone https://github.com/godleon/s2i-basictools.git
 
 ENV PLAYBOOK s2i-basictools/setup.yml
+#RUN ansible-playbook ${PLAYBOOK}
 RUN ansible-playbook-wrapper -vvv
 
 # Copy the S2I scripts to /usr/libexec/s2i since we set the label that way
