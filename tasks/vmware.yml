@@ -10,7 +10,8 @@
 
 - name: "(VMware Automation) Prepare python 2.7 environment"
   apt: 
-    name: "{{ item }}" 
+    name: "{{ item }}"
+    update_cache: yes 
     state: present
   with_items:
     - "python2.7" 

@@ -8,12 +8,12 @@
     - defaults/main.yml
 
   tasks:
-    - name: "Delegate installation process"
-      include_tasks: "tasks/use-{{ ansible_os_family }}.yml"
+    # - name: "Delegate installation process"
+    #   include_tasks: "tasks/use-{{ ansible_os_family }}.yml"
 
     - name: "VMware automation specific configurations"
       include_tasks: "tasks/vmware.yml"
-      when: lookup('env','PLATFORM') == "vmware"
+      when: ansible_env.PLATFORM == "vmware"
 
     - name: "Configure environment"
       include_tasks: "tasks/main.yml"

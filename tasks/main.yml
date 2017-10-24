@@ -13,6 +13,31 @@
 #     msg: "this is openstack"
 #   when: lookup('env','PLATFORM') == "openstack"
 
+
+# Install basic tools
+- name: "Install basic tools"
+  apt: 
+    name: "{{ item }}"
+    update_cache: yes 
+    state: present
+  with_items:
+    - "ipmitool"
+    - "bzip2"
+    - "patch"
+    - "tar"
+    - "unzip"
+    - "wget"
+    - "curl"
+    - "git"
+    - "acl"
+  when: ansible_os_family == "Debian"
+
+
+- name: "APT autoremove"
+  apt: 
+    autoremove: yes
+
+
 - name: "Add default user"
   user:
     name: default
