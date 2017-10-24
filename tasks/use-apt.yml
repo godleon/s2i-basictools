@@ -3,8 +3,8 @@
 ---
 
 # Install basic tools
-- name: Install basic tools
-  become: yes
+- name: "Install basic tools"
+  # become: yes
   apt: 
     name: "{{ item }}" 
     state: present
@@ -19,7 +19,8 @@
     - "git"
     - "acl"
 
-- name: APT autoremove
-  become: yes
+
+- name: "APT autoremove"
+  # become: yes
   apt: 
     autoremove: yes

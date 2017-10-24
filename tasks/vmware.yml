@@ -1,0 +1,22 @@
+#!/usr/bin/env ansible-playbook
+
+---
+
+- name: "(VMware Automation) Remove built-in Ansible"
+  apt: 
+    name: "ansible" 
+    state: absent
+
+
+- name: "(VMware Automation) Prepare python 2.7 environment"
+  apt: 
+    name: "{{ item }}" 
+    state: present
+  with_items:
+    - "python2.7" 
+    - "python-pip"
+
+
+- name: "(VMware Automation) Install necessary python modules for Ansible"
+  pip:
+    requirements: "ansible-requirements/{{ REQ_FILE }}"
