@@ -12,7 +12,7 @@
       include: "tasks/use-{{ ansible_os_family }}.yml"
 
     - name: "VMware automation specific configurations"
-      import_tasks: "tasks/vmware.yml"
+      include: "tasks/vmware.yml"
       include: lookup('env','PLATFORM') == "vmware"
 
     - name: "Configure environment"
