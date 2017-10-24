@@ -7,11 +7,11 @@
 
 - debug:
     msg: "this is vmware"
-  when: "{{ lookup('env','PLATFORM') }}" == "vmware"
+  when: lookup('env','PLATFORM') == "vmware"
 
 - debug:
     msg: "this is openstack"
-  when: "{{ lookup('env','PLATFORM') }}" == "openstack"
+  when: lookup('env','PLATFORM') == "openstack"
 
 # - name: delegate installation process
 #   import_tasks: "use-{{ ansible_pkg_mgr }}.yml"
