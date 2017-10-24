@@ -9,7 +9,7 @@
 
   tasks:
     - name: "Delegate installation process"
-      import_tasks: "tasks/use-{{ ansible_pkg_mgr }}.yml"
+      import_tasks: "tasks/use-{{ ansible_os_family }}.yml"
 
     - name: "VMware automation specific configurations"
       import_tasks: "tasks/vmware.yml"
