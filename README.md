@@ -12,8 +12,10 @@ To build the base image for 16.04 from scratch, run:
 
 > git clone https://github.com/godleon/s2i-basictools.git
 
-> cd s2i-basictools/ubuntu16.04
+### Build image for Ubuntu 16.04 with stable Ansible version
+> cd s2i-basictools/build/ubuntu16.04
 
+### Build image for Ubuntu 16.04 with 
 > make build
 
 

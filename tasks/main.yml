@@ -2,8 +2,13 @@
 
 ---
 
+- debug:
+    msg: "var = $ENV(PLATFORM)"
+  tags:
+    - debug
+
 - name: delegate installation process
-  include: "use-{{ ansible_pkg_mgr }}.yml"
+  import_tasks: "use-{{ ansible_pkg_mgr }}.yml"
 
 - name: Add default user
   user:
@@ -21,6 +26,11 @@
     group: root
     state: directory
     recurse: yes
+    mode: 0775
+
+- name: Create /etc/password file permission
+  file:
+    path: "/etc/passwd"
     mode: 0775
 
 - name: Configure ACL permission for default user
