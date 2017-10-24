@@ -4,16 +4,16 @@
 - hosts: all
   become: yes
   # gather_facts: true
-  # vars_files:
-  #   - defaults/main.yml
+  vars_files:
+    - defaults/main.yml
 
   tasks:
     - name: "Delegate installation process"
-      import_tasks: "tasks/use-{{ ansible_os_family }}.yml"
+      include: "tasks/use-{{ ansible_os_family }}.yml"
 
     - name: "VMware automation specific configurations"
       import_tasks: "tasks/vmware.yml"
-      when: lookup('env','PLATFORM') == "vmware"
+      include: lookup('env','PLATFORM') == "vmware"
 
     - name: "Configure environment"
-      import_tasks: "tasks/main.yml"
+      include: "tasks/main.yml"
