@@ -9,11 +9,11 @@
 
   tasks:
     - name: "Delegate installation process"
-      include: "tasks/use-{{ ansible_os_family }}.yml"
+      include_tasks: "tasks/use-{{ ansible_os_family }}.yml"
 
     - name: "VMware automation specific configurations"
-      include: "tasks/vmware.yml"
-      include: lookup('env','PLATFORM') == "vmware"
+      include_tasks: "tasks/vmware.yml"
+      when: lookup('env','PLATFORM') == "vmware"
 
     - name: "Configure environment"
-      include: "tasks/main.yml"
+      include_tasks: "tasks/main.yml"
