@@ -6,11 +6,7 @@
   # gather_facts: true
   vars_files:
     - defaults/main.yml
-
   tasks:
-    # - name: "Delegate installation process"
-    #   include_tasks: "tasks/use-{{ ansible_os_family }}.yml"
-
     - name: "VMware automation specific configurations"
       include_tasks: "tasks/vmware.yml"
       when: ansible_env.TAG == "vmware-ubuntu16.04"
