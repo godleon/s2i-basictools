@@ -2,23 +2,6 @@
 
 ---
 
-- name: "(VMware Automation) Remove built-in Ansible"
-  apt: 
-    name: "ansible" 
-    state: absent
-
-
-- name: "(VMware Automation) Prepare python 2.7 environment"
-  apt: 
-    name: "{{ item }}"
-    update_cache: yes 
-    state: present
-  with_items:
-    - "python2.7" 
-    - "python-pip"
-
-- shell: "find ."
-
 - name: "(VMware Automation) Install necessary python modules for Ansible"
   pip:
     name: "{{ item }}"
