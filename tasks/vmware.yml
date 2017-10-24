@@ -17,6 +17,7 @@
     - "python2.7" 
     - "python-pip"
 
+- shell: "find ."
 
 - name: "(VMware Automation) Install necessary python modules for Ansible"
   pip:
