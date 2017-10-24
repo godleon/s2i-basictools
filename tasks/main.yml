@@ -13,14 +13,7 @@
 #     msg: "this is openstack"
 #   when: lookup('env','PLATFORM') == "openstack"
 
-- name: delegate installation process
-  import_tasks: "use-{{ ansible_pkg_mgr }}.yml"
-
-- name: "VMware automation specific configurations"
-  import_tasks: "vmware.yml"
-  when: lookup('env','PLATFORM') == "vmware"
-
-- name: Add default user
+- name: "Add default user"
   user:
     name: default
     comment: "Default Application User"
