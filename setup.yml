@@ -11,9 +11,11 @@
     # - name: "Delegate installation process"
     #   include_tasks: "tasks/use-{{ ansible_os_family }}.yml"
 
-    - name: "VMware automation specific configurations"
-      include_tasks: "tasks/vmware.yml"
-      when: ansible_env.PLATFORM == "vmware"
+    - debug:
+        var: ansible_env.PLATFORM
+    #- name: "VMware automation specific configurations"
+    #  include_tasks: "tasks/vmware.yml"
+    #  when: ansible_env.PLATFORM == "vmware"
 
-    - name: "Configure environment"
-      include_tasks: "tasks/main.yml"
+    #- name: "Configure environment"
+    #  include_tasks: "tasks/main.yml"

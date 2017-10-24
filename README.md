@@ -13,16 +13,17 @@ To build the base image for 16.04 from scratch, run:
 > git clone https://github.com/godleon/s2i-basictools.git
 
 ### Build image for Ubuntu 16.04 with stable Ansible version
-> cd s2i-basictools/build/ubuntu16.04
+> cd s2i-basictools/builds/ubuntu16.04
 
-### Build image for Ubuntu 16.04 with 
+### Build image for Ubuntu 16.04 with latest Ansble version (installed by pip)
+> cd s2i-basictools/builds/vmware-ubuntu16.04
+
+
 > make build
 
 
 ## Test
 
 This repository includes the S2I test framework, which launches a simple test to make sure the image builds and runs properly.
-
-> cd s2i-ubuntu-basictoolss/16.04
 
 > make test
