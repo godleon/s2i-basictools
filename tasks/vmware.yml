@@ -21,4 +21,9 @@
 
 - name: "(VMware Automation) Install necessary python modules for Ansible"
   pip:
-    requirements: "ansible-requirements/vmware.txt"
+    name: "{{ item }}"
+    state: latest
+  with_items:
+    - "jmespath"
+    - "pysphere"
+    - "pyVmomi"
