@@ -27,7 +27,7 @@ apt-get -yq install $INSTALL_PKGS && \
 apt-get clean && \
 git clone https://github.com/godleon/s2i-basictools.git
 
-ENV PLAYBOOK s2i-basictools/setup.yml --tags="debug"
+ENV PLAYBOOK s2i-basictools/setup.yml
 RUN ansible-playbook-wrapper -vvv
 
 # Copy the S2I scripts to /usr/libexec/s2i since we set the label that way
