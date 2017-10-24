@@ -16,7 +16,7 @@ ENV \
     HOME=/opt/app-root/src \
     #ANSIBLE_LOCAL_TEMP=/tmp/.ansible/tmp \
     PATH=/opt/app-root/src/bin:/opt/app-root/bin:$PATH \
-    PLATFORM=vmware
+    TAG=vmware-ubuntu16.04
 
 RUN INSTALL_PKGS="git make curl python2.7 python-pip" && \
 export DEBIAN_FRONTEND=noninteractive && \

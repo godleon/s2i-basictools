@@ -15,7 +15,8 @@ ENV \
     # The $HOME is not set by default, but some applications needs this variable
     HOME=/opt/app-root/src \
     #ANSIBLE_LOCAL_TEMP=/tmp/.ansible/tmp \
-    PATH=/opt/app-root/src/bin:/opt/app-root/bin:$PATH
+    PATH=/opt/app-root/src/bin:/opt/app-root/bin:$PATH \
+    TAG=ubuntu16.04
 
 RUN INSTALL_PKGS="git \
 make \
