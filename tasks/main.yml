@@ -30,6 +30,7 @@
     - "curl"
     - "git"
     - "acl"
+    - "sshpass"
   when: ansible_os_family == "Debian"
 
 
