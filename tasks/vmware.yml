@@ -11,3 +11,8 @@
     - "pysphere"
     - "pyVmomi"
     - "PyYAML"
+    - "jinja2"
+    - "paramiko"
+    - "cryptography"
+    - "setuptools"
+    - "MarkupSafe"
