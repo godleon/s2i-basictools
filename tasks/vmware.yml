@@ -10,3 +10,4 @@
     - "jmespath"
     - "pysphere"
     - "pyVmomi"
+    - "yaml"
