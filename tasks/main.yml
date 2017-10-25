@@ -34,9 +34,9 @@
   when: ansible_os_family == "Debian"
 
 
-- name: "APT autoremove"
-  apt: 
-    autoremove: yes
+# - name: "APT autoremove"
+#   apt: 
+#     autoremove: yes
 
 
 - name: "Add default user"
