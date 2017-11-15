@@ -16,3 +16,4 @@
     - "cryptography"
     - "setuptools"
     - "MarkupSafe"
+    - "pyghmi"
