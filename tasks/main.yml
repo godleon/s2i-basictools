@@ -31,6 +31,7 @@
     - "git"
     - "acl"
     - "sshpass"
+    - "cifs-utils"
   when: ansible_os_family == "Debian"
 
 
