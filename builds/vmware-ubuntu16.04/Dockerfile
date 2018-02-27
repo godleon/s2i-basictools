@@ -18,7 +18,7 @@ ENV \
     PATH=/opt/app-root/src/bin:/opt/app-root/bin:$PATH \
     TAG=vmware-ubuntu16.04
 
-RUN INSTALL_PKGS="git make curl python2.7 python-pip" && \
+RUN INSTALL_PKGS="git make curl python2.7 python-pip jq" && \
 export DEBIAN_FRONTEND=noninteractive && \
 apt-get -y remove ansible && \
 apt-get -yq update && \

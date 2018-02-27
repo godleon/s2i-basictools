@@ -20,6 +20,7 @@ ENV \
 
 RUN INSTALL_PKGS="git \
 make \
+jq \
 curl" && \
 export DEBIAN_FRONTEND=noninteractive && \
 apt-get -yq update && \
